@@ -51,10 +51,10 @@ const searchVideosReq = async (key: string, query: string, options: VideoRequest
     };
 
     if (validate) {
-        validateRequest(options);
+        validateRequest(requestData);
     }
 
-    const response = (await axios.post(PIXABAY_URL_VIDEOS + QueryString.stringify(options))).data;
+    const response = (await axios.post(PIXABAY_URL_VIDEOS + QueryString.stringify(requestData))).data;
     if (!response.hits && !response.total && !response.totalHits) {
         throw new Error(`BadResponse: hits total totalHits are missing. make sure that you have right access token.`);
     }
