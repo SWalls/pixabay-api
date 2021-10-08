@@ -99,9 +99,9 @@ var searchVideosReq = function (key, query, options, validate) {
                 case 0:
                     requestData = __assign({}, options, { key: key, q: query });
                     if (validate) {
-                        ValidateRequest_1.validateRequest(options);
+                        ValidateRequest_1.validateRequest(requestData);
                     }
-                    return [4 /*yield*/, axios_1.default.post(PIXABAY_URL_VIDEOS + QueryString.stringify(options))];
+                    return [4 /*yield*/, axios_1.default.post(PIXABAY_URL_VIDEOS + QueryString.stringify(requestData))];
                 case 1:
                     response = (_a.sent()).data;
                     if (!response.hits && !response.total && !response.totalHits) {
